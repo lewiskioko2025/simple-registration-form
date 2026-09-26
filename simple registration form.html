@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 1: Simple Registration Form</title>
+
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        
+        <form action="#" method="POST" onsubmit="return validateForm()">
+            
+            <!-- 1. Full Name -->
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- 2. Email -->
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            </div>
+
+            <!-- 3. Password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Minimum 6 characters" required minlength="6">
+            </div>
+
+            <!-- 4. Gender (Radio) -->
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="inline-group">
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+            </div>
+
+            <!-- 5. Interests (Checkboxes) -->
+            <div class="form-group">
+                <label>Interests:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="interests" value="Coding"> Coding</label>
+                    <label><input type="checkbox" name="interests" value="Sports"> Sports</label>
+                    <label><input type="checkbox" name="interests" value="Music"> Music</label>
+                    <label><input type="checkbox" name="interests" value="Gaming"> Gaming</label>
+                </div>
+            </div>
+
+            <!-- 6. Country (Select Dropdown) -->
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="" disabled selected>-- Select your country --</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="USA">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Australia">Australia</option>
+                </select>
+            </div>
+
+            <!-- 7. Message (Textarea) -->
+            <div class="form-group">
+                <label for="message">Message / Bio:</label>
+                <textarea id="message" name="message" placeholder="Write a short message or bio..."></textarea>
+            </div>
+
+            <!-- 8. Submit Button -->
+            <button type="submit">Register Now</button>
+
+        </form>
+    </div>
+
+    <!-- Challenge: Simple JS validation check -->
+    <script>
+        function validateForm() {
+            // Check if at least one interest checkbox is selected (Challenge feature)
+            const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
+            if (checkboxes.length === 0) {
+                alert("Please select at least one interest!");
+                return false;
+            }
+
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
